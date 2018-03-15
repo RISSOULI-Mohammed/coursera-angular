@@ -28,6 +28,7 @@ import { LeaderService } from './services/leader.service';
 import { ProcessHttpmsgService } from './services/process-httpmsg.service';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     HomeComponent,
     ContactComponent,
     LoginComponent,
+    HighlightDirective,
   ],
   entryComponents: [
     LoginComponent
