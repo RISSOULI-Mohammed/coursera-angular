@@ -26,6 +26,7 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+import { FeedbackService } from './services/feedback.service'
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HighlightDirective } from './directives/highlight.directive';
@@ -61,6 +62,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     DishService,
     PromotionService,
     LeaderService,
+    FeedbackService,
     ProcessHttpmsgService,
     {provide: 'BaseURL', useValue: baseURL}
   ],

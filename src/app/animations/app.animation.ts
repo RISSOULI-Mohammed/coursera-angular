@@ -14,6 +14,18 @@ export function visibility() {
     ]);
 }
 
+export function formVisibility() {
+    return trigger('formVisibility', [
+        state('shown', style({
+            display: 'block'
+        })),
+        state('hidden', style({
+            display: 'none'
+        })),
+        transition('* => *', animate('0.5s ease-in-out'))
+    ]);
+}
+
 export function flyInOut() {
     return trigger('flyInOut',[
         state('*', style({ opacity: 1, transform: 'translateX(0)'})),

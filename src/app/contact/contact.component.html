@@ -42,9 +42,29 @@
 
   <div fxFlex fxFlexOffset="20px" class="form-size">
     <h3>Send us your Feedback</h3>
-    <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+    <div [hidden]="formVisibility === 'shown' || submittedFeedback">
+      <h4>Submitting Form</h4>
+      <md-spinner></md-spinner>
+    </div>
 
-    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <md-card *ngIf="submittedFeedback">
+        <md-card-header>
+          <md-card-title>
+            <h3>Your Submission</h3>
+          </md-card-title>
+        </md-card-header>
+        <md-card-content>
+            <p>First Name: {{submittedFeedback.firstname}}</p>
+            <p>Last Name: {{submittedFeedback.lastname}}</p>
+            <p>Tel. Number: {{submittedFeedback.telnum}}</p>
+            <p>Email: {{submittedFeedback.email}}</p>
+            <p>Contact You?: {{submittedFeedback.agree}}</p>
+            <p>How?: {{submittedFeedback.contacttype}}</p>
+            <p>Feedback: {{submittedFeedback.message}}</p>
+        </md-card-content>
+    </md-card>
+
+    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()"  [@formVisibility]="formVisibility"  [@expand]>
       <p>
         <md-input-container class="half-width" dividerColor="{{(formErrors.firstname) ? 'warn' : 'primary'}}">
           <input mdInput formControlName="firstname" placeholder="First Name" type="text" required>
@@ -96,5 +116,8 @@
       </p>
       <button type="submit" md-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
     </form>
+
+    
+
   </div>
 </div>
